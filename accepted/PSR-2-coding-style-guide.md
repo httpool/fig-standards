@@ -54,6 +54,9 @@ interpreted as described in [RFC 2119].
 - Opening parentheses for control structures MUST NOT have a space after them,
   and closing parentheses for control structures MUST NOT have a space before.
 
+- Short array syntax MUST be used. If array is split across multiple lines, long
+  array syntax MUST be used.
+
 ### 1.1. Example
 
 This example encompasses some of the rules below as a quick overview:
@@ -613,8 +616,27 @@ $foo->bar(
 );
 ~~~
 
+7. Arrays
+---------
 
-7. Conclusion
+Arrays MUST be defined using the short array syntax.
+
+Arrays MAY be split across multiple lines.
+In that case the array MUST be declared with the long array syntax.
+
+~~~php
+<?php
+
+$shortArr = ['foo', 'bar'];
+
+$longArr = array(
+    'many',
+    'values',
+    'here'
+);
+~~~
+
+8. Conclusion
 --------------
 
 There are many elements of style and practice intentionally omitted by this
