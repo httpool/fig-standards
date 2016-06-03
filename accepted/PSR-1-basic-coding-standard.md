@@ -17,7 +17,7 @@ interpreted as described in [RFC 2119].
 1. Overview
 -----------
 
-- Files MUST use only `<?php` and `<?=` tags.
+- Files MUST use only the `<?php` tag.
 
 - Files MUST use only UTF-8 without BOM for PHP code.
 
@@ -25,7 +25,7 @@ interpreted as described in [RFC 2119].
   *or* cause side-effects (e.g. generate output, change .ini settings, etc.)
   but SHOULD NOT do both.
 
-- Namespaces and classes MUST follow an "autoloading" PSR: [[PSR-0], [PSR-4]].
+- Namespaces and classes MUST follow an "autoloading" PSR: [PSR-4].
 
 - Class names MUST be declared in `StudlyCaps`.
 
@@ -39,8 +39,7 @@ interpreted as described in [RFC 2119].
 
 ### 2.1. PHP Tags
 
-PHP code MUST use the long `<?php ?>` tags or the short-echo `<?= ?>` tags; it
-MUST NOT use the other tag variations.
+PHP code MUST use the long `<?php ?>` tags; it MUST NOT use the other tag variations.
 
 ### 2.2. Character Encoding
 
@@ -66,6 +65,7 @@ i.e, an example of what to avoid:
 
 ~~~php
 <?php
+
 // side effect: change ini settings
 ini_set('error_reporting', E_ALL);
 
@@ -87,6 +87,7 @@ effects; i.e., an example of what to emulate:
 
 ~~~php
 <?php
+
 // declaration
 function foo()
 {
@@ -106,34 +107,23 @@ if (! function_exists('bar')) {
 3. Namespace and Class Names
 ----------------------------
 
-Namespaces and classes MUST follow an "autoloading" PSR: [[PSR-0], [PSR-4]].
+Namespaces and classes MUST follow an "autoloading" PSR: [PSR-4].
 
 This means each class is in a file by itself, and is in a namespace of at
 least one level: a top-level vendor name.
 
 Class names MUST be declared in `StudlyCaps`.
 
-Code written for PHP 5.3 and after MUST use formal namespaces.
+Code MUST use formal namespaces.
 
 For example:
 
 ~~~php
 <?php
-// PHP 5.3 and later:
+
 namespace Vendor\Model;
 
 class Foo
-{
-}
-~~~
-
-Code written for 5.2.x and before SHOULD use the pseudo-namespacing convention
-of `Vendor_` prefixes on class names.
-
-~~~php
-<?php
-// PHP 5.2.x and earlier:
-class Vendor_Model_Foo
 {
 }
 ~~~
@@ -150,6 +140,7 @@ For example:
 
 ~~~php
 <?php
+
 namespace Vendor\Model;
 
 class Foo
